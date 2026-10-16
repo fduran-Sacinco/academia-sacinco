@@ -1,52 +1,72 @@
 import './App.css'
+import { Routes, Route } from 'react-router-dom'
+
+import Navbar from './components/Navbar'
+
+import Inicio from './pages/Inicio'
+import Modulos from './pages/Modulos'
+import Evidencias from './pages/Evidencias'
+import Nosotros from './pages/Nosotros'
+import Ingreso from './components/Ingreso'
+
+import Capsula001 from './pages/Capsula001'
+import Capsula002 from './pages/Capsula002'
+import Capsula003 from './pages/Capsula003'
+import Beneficios from './pages/Beneficios'
 
 function App() {
   return (
-    <div className="app">
-      <header className="header">
-        <h1>Academia SACINCO</h1>
-        <p>
-          Formación, inclusión laboral y desarrollo de personas
-        </p>
-      </header>
+    <>
+      <Navbar />
 
-      <main>
-        <section className="welcome">
-          <h2>Bienvenidos</h2>
-          <p>
-            Plataforma de aprendizaje para fortalecer una cultura
-            de inclusión, respeto y crecimiento dentro de SACINCO.
-          </p>
+      <Routes>
 
-          <button>
-            Ver cápsulas de formación
-          </button>
-        </section>
+        <Route path="/" element={<Inicio />} />
 
-        <section className="modules">
-          <div className="card">
-            <h3>Inclusión Laboral</h3>
-            <p>
-              Conceptos, herramientas y buenas prácticas.
-            </p>
-          </div>
+        <Route path="/ingreso" element={<Ingreso />} />
 
-          <div className="card">
-            <h3>Cápsulas Educativas</h3>
-            <p>
-              Microcontenidos para aprender de forma simple.
-            </p>
-          </div>
+        <Route path="/modulos" element={<Modulos />} />
 
-          <div className="card">
-            <h3>Certificación</h3>
-            <p>
-              Evidencias y avances del proceso SACINCO.
-            </p>
-          </div>
-        </section>
-      </main>
-    </div>
+        <Route path="/capsula001" element={<Capsula001 />} />
+
+        <Route path="/capsula002" element={<Capsula002 />} />
+
+        <Route path="/capsula003" element={<Capsula003 />} />
+
+        <Route path="/evidencias" element={<Evidencias />} />
+
+        <Route path="/nosotros" element={<Nosotros />} />
+
+        {/* Nuevas secciones del Centro de Recursos */}
+
+        <Route
+          path="/informacion-util"
+          element={
+            <div className="pagina-provisional">
+              <h1>ℹ️ Información útil</h1>
+              <p>
+                Recursos e información de interés para los trabajadores SACINCO.
+              </p>
+            </div>
+          }
+        />
+
+   <Route path="/beneficios" element={<Beneficios />} />
+
+        <Route
+          path="/seguridad"
+          element={
+            <div className="pagina-provisional">
+              <h1>🦺 Seguridad</h1>
+              <p>
+                Información y recursos de seguridad para los trabajadores.
+              </p>
+            </div>
+          }
+        />
+
+      </Routes>
+    </>
   )
 }
 
